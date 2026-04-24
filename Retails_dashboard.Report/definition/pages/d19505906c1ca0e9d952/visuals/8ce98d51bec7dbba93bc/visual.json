@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "8ce98d51bec7dbba93bc",
+  "position": {
+    "x": 0,
+    "y": 214,
+    "z": 6001,
+    "height": 260,
+    "width": 257,
+    "tabOrder": 6001
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_returns"
+                    }
+                  },
+                  "Property": "sales_amount"
+                }
+              },
+              "queryRef": "gold_fact_returns.sales_amount",
+              "nativeQueryRef": "Sum of sales_amount",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": []
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3f6061cf25ad972a12e1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_returns"
+              }
+            },
+            "Property": "sales_amount"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

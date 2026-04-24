@@ -1,0 +1,138 @@
+table gold_fact_returns
+	lineageTag: 0f842673-4930-43e0-989d-a565c369e379
+	sourceLineageTag: [dbo].[gold_fact_returns]
+
+	column invoice_no
+		dataType: string
+		lineageTag: 9f06db94-8dff-4ba1-a8ae-a1321947fb9e
+		sourceLineageTag: invoice_no
+		summarizeBy: none
+		sourceColumn: invoice_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column stock_code
+		dataType: string
+		lineageTag: 88fe3e03-bc2a-4455-9e45-c3be44eab94a
+		sourceLineageTag: stock_code
+		summarizeBy: none
+		sourceColumn: stock_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 91572163-8052-4070-be4a-9935f7e81263
+		sourceLineageTag: description
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 26c773f7-f952-4737-9966-9e2c8247981a
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_ts
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 528c9a8d-2f9c-425f-99fa-6c1c94432d81
+		sourceLineageTag: invoice_ts
+		summarizeBy: none
+		sourceColumn: invoice_ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: e9d82b1f-c8af-4c08-b30e-74981d109f65
+		sourceLineageTag: unit_price
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column customer_id
+		dataType: string
+		lineageTag: d0ebbcb5-74ea-4ab9-8536-8671acaa774b
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 9bf856dd-24b1-4a94-8960-af08eb3a19c9
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_amount
+		dataType: double
+		lineageTag: aebff582-a97c-40dd-88b4-3e378753a314
+		sourceLineageTag: sales_amount
+		summarizeBy: sum
+		sourceColumn: sales_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column invoice_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cd1ffcb8-2550-4388-a95e-efc3210e38e8
+		sourceLineageTag: invoice_date
+		summarizeBy: none
+		sourceColumn: invoice_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 458a49a5-3cb5-4023-9876-6e4de205f1d7
+		sourceLineageTag: invoice_year
+		summarizeBy: sum
+		sourceColumn: invoice_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_month
+		dataType: int64
+		formatString: 0
+		lineageTag: b4532ea2-49b2-4086-926b-5a9af5801360
+		sourceLineageTag: invoice_month
+		summarizeBy: sum
+		sourceColumn: invoice_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_day
+		dataType: int64
+		formatString: 0
+		lineageTag: f9377754-9691-40d5-9c41-11e04b730df2
+		sourceLineageTag: invoice_day
+		summarizeBy: sum
+		sourceColumn: invoice_day
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_returns = entity
+		mode: directLake
+		source
+			entityName: gold_fact_returns
+			schemaName: dbo
+			expressionSource: 'DirectLake - Retail_Gold_Lakehouse'
+

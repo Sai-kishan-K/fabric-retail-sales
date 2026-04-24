@@ -1,0 +1,62 @@
+table gold_sales_daily
+	lineageTag: eb41ddf7-8b16-4a09-ad63-2d9042b557ca
+	sourceLineageTag: [dbo].[gold_sales_daily]
+
+	column invoice_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3e0c1708-56bb-4009-a6dd-e00b1444a4bd
+		sourceLineageTag: invoice_date
+		summarizeBy: none
+		sourceColumn: invoice_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_revenue
+		dataType: double
+		lineageTag: edc84493-1c86-4de4-886c-465e3180d975
+		sourceLineageTag: total_revenue
+		summarizeBy: sum
+		sourceColumn: total_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: d99c5a8c-b73f-42bc-b8dc-8ccb4ac20c9d
+		sourceLineageTag: total_orders
+		summarizeBy: sum
+		sourceColumn: total_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_customers
+		dataType: int64
+		formatString: 0
+		lineageTag: 07bd211c-10e3-4fbd-af52-8fcc606bc326
+		sourceLineageTag: total_customers
+		summarizeBy: sum
+		sourceColumn: total_customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: cb24b0e8-bf74-49dc-92a2-597af6ce8d5c
+		sourceLineageTag: total_quantity
+		summarizeBy: sum
+		sourceColumn: total_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_sales_daily = entity
+		mode: directLake
+		source
+			entityName: gold_sales_daily
+			schemaName: dbo
+			expressionSource: 'DirectLake - Retail_Gold_Lakehouse'
+

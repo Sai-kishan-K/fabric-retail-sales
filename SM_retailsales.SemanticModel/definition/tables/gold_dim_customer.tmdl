@@ -1,0 +1,29 @@
+table gold_dim_customer
+	lineageTag: 689f8a73-ed52-4bd7-bb43-299393a0635e
+	sourceLineageTag: [dbo].[gold_dim_customer]
+
+	column customer_id
+		dataType: string
+		lineageTag: 90e8fd9f-1b26-47bc-a9f2-db70c779d852
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: be340785-53bd-4e69-a031-f28b1915f7cf
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_customer = entity
+		mode: directLake
+		source
+			entityName: gold_dim_customer
+			schemaName: dbo
+			expressionSource: 'DirectLake - Retail_Gold_Lakehouse'
+

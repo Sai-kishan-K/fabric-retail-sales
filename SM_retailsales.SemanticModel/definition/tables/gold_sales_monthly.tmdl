@@ -1,0 +1,72 @@
+table gold_sales_monthly
+	lineageTag: 8c2891fa-9be3-4fa6-8f6f-dba22a867b30
+	sourceLineageTag: [dbo].[gold_sales_monthly]
+
+	column invoice_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c624e34-e96c-44fc-b1ab-f8e4d7dde4bc
+		sourceLineageTag: invoice_year
+		summarizeBy: sum
+		sourceColumn: invoice_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_month
+		dataType: int64
+		formatString: 0
+		lineageTag: 70f728d3-ddc8-4fd4-b866-cea3fddadca4
+		sourceLineageTag: invoice_month
+		summarizeBy: sum
+		sourceColumn: invoice_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_revenue
+		dataType: double
+		lineageTag: 9a7297b9-477e-4a05-a8ca-fb45fb8c95f7
+		sourceLineageTag: total_revenue
+		summarizeBy: sum
+		sourceColumn: total_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: d5084634-d5eb-43d7-b4a5-349aa19815bd
+		sourceLineageTag: total_orders
+		summarizeBy: sum
+		sourceColumn: total_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_customers
+		dataType: int64
+		formatString: 0
+		lineageTag: b495b702-4ae4-46a7-a09a-904d8e1b946d
+		sourceLineageTag: total_customers
+		summarizeBy: sum
+		sourceColumn: total_customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 35efcfa1-6d91-4ab1-b846-70e0450aaf88
+		sourceLineageTag: total_quantity
+		summarizeBy: sum
+		sourceColumn: total_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_sales_monthly = entity
+		mode: directLake
+		source
+			entityName: gold_sales_monthly
+			schemaName: dbo
+			expressionSource: 'DirectLake - Retail_Gold_Lakehouse'
+

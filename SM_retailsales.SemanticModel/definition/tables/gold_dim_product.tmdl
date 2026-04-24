@@ -1,0 +1,29 @@
+table gold_dim_product
+	lineageTag: dc4b6429-7905-487c-beb4-ce6c969440b1
+	sourceLineageTag: [dbo].[gold_dim_product]
+
+	column stock_code
+		dataType: string
+		lineageTag: 88e4e20c-bcc0-470a-85ad-5a4ea4cef337
+		sourceLineageTag: stock_code
+		summarizeBy: none
+		sourceColumn: stock_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 2c8f25b7-8f4a-4426-8251-d334c0f59e2f
+		sourceLineageTag: description
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_product = entity
+		mode: directLake
+		source
+			entityName: gold_dim_product
+			schemaName: dbo
+			expressionSource: 'DirectLake - Retail_Gold_Lakehouse'
+

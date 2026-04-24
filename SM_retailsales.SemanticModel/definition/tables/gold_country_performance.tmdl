@@ -1,0 +1,100 @@
+table gold_country_performance
+	lineageTag: 882f6df1-f4d7-47ec-83de-832dfef0edf0
+	sourceLineageTag: [dbo].[gold_country_performance]
+
+	measure TotalRevenue = SUM(gold_fact_sales[sales_amount])
+		lineageTag: 3987865e-a99a-4a70-8ff1-4ad7e340a064
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure TotalOrders = DISTINCTCOUNT(gold_fact_sales[invoice_no])
+		formatString: 0
+		lineageTag: 1b0ed32d-1337-474f-8d31-718929cbc8e7
+
+		changedProperty = Name
+
+	measure TotalCustomers = DISTINCTCOUNT(gold_fact_sales[customer_id])
+		formatString: 0
+		lineageTag: 4ae8b73f-ba85-4b40-80ef-91a63560321c
+
+		changedProperty = Name
+
+	measure TotalQuantity = SUM(gold_fact_sales[quantity])
+		formatString: 0
+		lineageTag: 4f75997a-d8af-4ca1-902a-02ba84eb7f2f
+
+		changedProperty = Name
+
+	measure TotalReturns = SUM(gold_fact_returns[sales_amount])
+		lineageTag: 69e91d3a-a860-4b4e-994b-eede5c4f6d6e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ReturnRate = DIVIDE([TotalReturns],[TotalRevenue])
+		lineageTag: 67f256cb-3349-4a4f-a708-f903bef1f0d9
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column country
+		dataType: string
+		lineageTag: 6da1b1c5-dcbe-41f7-9b30-f85d6c9efd07
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_revenue
+		dataType: double
+		lineageTag: c1a9148a-aca9-439d-9815-74dc694369b8
+		sourceLineageTag: total_revenue
+		summarizeBy: sum
+		sourceColumn: total_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a621180-13cf-49cc-adcd-0a31e645f2b1
+		sourceLineageTag: total_orders
+		summarizeBy: sum
+		sourceColumn: total_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_customers
+		dataType: int64
+		formatString: 0
+		lineageTag: 2748fdc0-6643-487b-b90b-02b85c407e7e
+		sourceLineageTag: total_customers
+		summarizeBy: sum
+		sourceColumn: total_customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ed6027b-dd04-4a9d-a1d4-be444c4ba422
+		sourceLineageTag: total_quantity
+		summarizeBy: sum
+		sourceColumn: total_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_country_performance = entity
+		mode: directLake
+		source
+			entityName: gold_country_performance
+			schemaName: dbo
+			expressionSource: 'DirectLake - Retail_Gold_Lakehouse'
+

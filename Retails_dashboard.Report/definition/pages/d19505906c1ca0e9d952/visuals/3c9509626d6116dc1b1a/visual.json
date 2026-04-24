@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "3c9509626d6116dc1b1a",
+  "position": {
+    "x": 809.04541241890638,
+    "y": 73.5495829471733,
+    "z": 3000,
+    "height": 149.47173308619091,
+    "width": 346.39481000926781,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "kpi",
+    "query": {
+      "queryState": {
+        "Indicator": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_country_performance"
+                    }
+                  },
+                  "Property": "TotalCustomers"
+                }
+              },
+              "queryRef": "gold_country_performance.TotalCustomers",
+              "nativeQueryRef": "TotalCustomers"
+            }
+          ]
+        },
+        "TrendLine": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_country_performance"
+                    }
+                  },
+                  "Property": "total_customers"
+                }
+              },
+              "queryRef": "gold_country_performance.total_customers",
+              "nativeQueryRef": "Sum of total_customers"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "null"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total Customers'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
