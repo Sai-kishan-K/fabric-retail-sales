@@ -143,21 +143,6 @@ Kaggle Dataset (CSV)
 
 ---
 
-## 💼 Resume Bullet
-
-**Built an end-to-end Retail Lakehouse in Microsoft Fabric using Kaggle transaction data, implementing Medallion Architecture (Bronze/Silver/Gold), PySpark transformations, Delta tables, and Power BI dashboards for sales, customer, and returns analytics.**
-
----
-
-## 📌 Future Improvements
-
-* Add real-time streaming ingestion
-* Implement incremental data loads
-* Build advanced customer segmentation (RFM)
-* Add anomaly detection on sales trends
-
----
-
 ## 🙌 Author
 
 Sai Kishan
